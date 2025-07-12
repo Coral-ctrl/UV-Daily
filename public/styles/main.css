@@ -1,0 +1,295 @@
+body {
+  background: linear-gradient(to bottom, #e0f7fa, #EBFFD8);
+}
+
+h1 {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-family: "Titan One";
+  margin-bottom: 50px;
+  font-size: 5rem;
+  color: #4682A9;
+}
+
+form {
+  background-color: #FFFBDE;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  font-family: Arial, sans-serif;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #4682A9;
+}
+
+
+form select, form input[type="number"],
+form input[type="text"] {
+  width: 250px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #91C8E4;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #FFFBDE;
+}
+
+form button[type="submit"] {
+  background-color: #91C8E4;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #749BC2;
+}
+
+.form-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.get-num {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 100px;
+}
+
+.uv {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  position: relative;
+  border-radius: 150px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  font-size: 2rem;
+  color: white;
+  font-family: "Titan One", cursive;
+  gap: 10px;
+  margin: 150px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.uv p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.uv-number {
+    font-size: 3em;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+}
+
+.uv.low {
+  background-color: #2ecc71; /* Green */
+  border: 10px solid #27ae60;
+}
+
+.uv.moderate {
+  background-color: #f1c40f; /* Yellow */
+  border: 10px solid #f39c12;
+}
+
+.uv.high {
+  background-color: #f39c12; /* Orange */
+  border: 10px solid #e67e22;
+}
+
+.uv.very-high {
+  background-color: #e74c3c; /* Red */
+  border: 10px solid #c0392b;
+}
+
+.uv.extreme {
+  background-color: #9b59b6; /* Purple */
+  border: 10px solid #8e44ad;
+}
+
+.container {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.uv-tips {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: 250px;
+  text-align: center;
+  font-family: "Titan One";
+  font-size: 1.5rem;
+  color: #4682A9;
+}
+
+.tip-item {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 10px;
+  gap: 30px;
+}
+
+.tip-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tip-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tip-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Make images grayscale and dimmed */
+.uv-tips.grayscale img {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+/* Disable pointer events and show tooltip */
+.uv-tips.disabled .tip-btn {
+  pointer-events: none;
+  position: relative;
+}
+
+/* Tooltip on hover */
+.uv-tips.disabled .tip-btn span::after {
+  content: "Tips not needed today!";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.uv-tips.disabled .tip-btn span:hover::after {
+  opacity: 1;
+}
+
+
+.site-footer {
+  text-align: center;
+  padding: 16px 0;
+  background-color: #FFFBDE;
+  color: #4682A9;
+  font-size: 14px;
+  margin-top: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  form {
+      padding: 15px;
+  }
+
+  .form-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .uv {
+      width: 250px;
+      height: 250px;
+      font-size: 1.5rem;
+      margin: 50px;
+  }
+
+  .uv-number {
+      font-size: 2.5em;
+  }
+
+  .uv-tips {
+      margin-left: 0;
+      align-items: center;
+  }
+
+  .tip-item {
+      flex-direction: column;
+      gap: 10px;
+      margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 3rem;
+  }
+
+  .uv {
+      width: 200px;
+      height: 200px;
+      font-size: 1.2rem;
+  }
+
+  .uv-number {
+      font-size: 2em;
+  }
+
+  form button[type="submit"] {
+      width: 100%;
+  }
+}
+

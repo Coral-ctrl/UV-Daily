@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <h1>UV Daily</h1>
+
+    <div class="form-container">
+        <form method="GET" action="/" class="get-num">
+            <div>
+                <label for="lat">Latitude:</label>
+                <input 
+                    type="number" 
+                    step="0.0001" 
+                    name="lat" 
+                    id="lat" 
+                    required 
+                    min="-90" max="90"
+                    value="<%= typeof lat !== 'undefined' ? lat : '-37.85' %>">
+            </div>
+
+            <div>
+                <label for="lng">Longitude:</label>
+                <input 
+                    type="number" 
+                    step="0.0001" 
+                    name="lng" 
+                    id="lng" 
+                    required 
+                    min="-180" max="180"
+                    value="<%= typeof lng !== 'undefined' ? lng : '145.18' %>">
+
+                <button type="submit">Get UV Index</button>
+            </div>
+        </form>
+
+
+        <form method="GET" action="/" class="get-text">
+            <label for="cityname">Enter City Name:</label>
+
+            <!-- Dropdown of preset cities -->
+            <select id="preset-city">
+                <option value="">-- Choose a preset city --</option>
+                <option value="Melbourne">Melbourne</option>
+                <option value="Sydney">Sydney</option>
+                <option value="Brisbane">Brisbane</option>
+                <option value="Perth">Perth</option>
+                <option value="Adelaide">Adelaide</option>
+                <option value="Hobart">Hobart</option>
+                <option value="Darwin">Darwin</option>
+                <option value="Canberra">Canberra</option>
+            </select>
+
+            <!-- Manual input field -->
+            <input 
+                type="text" 
+                id="cityname" 
+                name="cityname" 
+                placeholder="e.g. Melbourne" 
+                required
+                value="<%= typeof cityname !== 'undefined' ? cityname : '' %>"
+            >
+
+            <button type="submit">Get UV Index</button>
+        </form>
+
+    </div>
+
+
+
+    <div class="container">
+
+        <% if (number !== undefined && number !== null) { %>
+            <div class="uv <%= level %>">
+                <p class="uv-number"><%= number %></p>
+                <p> 
+                    <% if (level === "low") { %>
+                        Low (Safe)
+                    <% } else if (level === "moderate") { %>
+                        Moderate (Use protection)
+                    <% } else if (level === "high") { %>
+                        High (Avoid direct sun)
+                    <% } else if (level === "very-high") { %> 
+                        Very High (Minimise sun exposure)
+                    <% } else if (level === "extreme") { %>
+                        Extreme (Stay indoors if possible)
+                    <% } %>
+                </p>
+            </div>
+
+        <% } else { %>
+            <p>No data available</p>
+        <% } %>
+
+
+        <div class="uv-tips <%= level === 'low' ? 'grayscale disabled' : '' %>">
+            <div class="tip-item">
+                <button class="tip-btn">
+                    <img src="images/slip.png" alt="slip image" class="tip-img">
+                </button>
+                <span class="tip-text">Slip</span>
+            </div>
+            <div class="tip-item">
+                <button class="tip-btn">
+                    <img src="images/slop.png" alt="slop image" class="tip-img">
+                </button>
+                <span class="tip-text">Slop</span>
+            </div>
+            <div class="tip-item">
+                <button class="tip-btn">
+                    <img src="images/slap.png" alt="slap image" class="tip-img">
+                </button>
+                <span class="tip-text">Slap</span>
+            </div>
+            <div class="tip-item">
+                <button class="tip-btn">
+                    <img src="images/seek.png" alt="seek image" class="tip-img">
+                </button>
+                <span class="tip-text">Seek</span>
+            </div>
+            <div class="tip-item">
+                <button class="tip-btn">
+                    <img src="images/slide.png" alt="slide image" class="tip-img">
+                </button>
+                <span class="tip-text">Slide</span>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const cityInput = document.getElementById("cityname");
+            const presetSelect = document.getElementById("preset-city");
+
+            if (cityInput) {
+                cityInput.focus();
+                cityInput.select();
+            }
+
+            if (presetSelect && cityInput) {
+                presetSelect.addEventListener("change", () => {
+                    const selected = presetSelect.value;
+                    if (selected) {
+                        cityInput.value = selected;
+                    }
+                });
+            }
+        });
+
+        // Define sound
+        const clickSound = new Audio("sounds/sparkle.wav");
+
+        const randomImages = [
+            "images/random1.png",
+            "images/random2.png",
+            "images/random3.png",
+            "images/random4.png",
+            "images/random5.png",
+            "images/random6.png",
+            "images/random7.png",
+            "images/random8.png",
+            "images/random9.png",
+            "images/random10.png",
+            "images/random11.png",
+            "images/random12.png",
+            "images/random13.png",
+            "images/random14.png",
+            "images/random15.png",
+            "images/random16.png",
+            "images/random17.png",
+            "images/random18.png",
+            "images/random19.png",
+            "images/random20.png",
+            "images/random21.png",
+            "images/random22.png",
+            "images/random23.png",
+            "images/random24.png",
+            "images/random25.png",
+            "images/random26.png",
+        ];
+
+        document.querySelectorAll(".tip-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                if (button.classList.contains("clicked")) return; // Already clicked
+
+                // Play sound
+                clickSound.currentTime = 0; // rewind to start in case of rapid clicks
+                clickSound.play();
+
+                // Change image
+                const img = button.querySelector(".tip-img");
+                const randomIndex = Math.floor(Math.random() * randomImages.length);
+                img.src = randomImages[randomIndex];
+
+                // Mark as clicked
+                button.classList.add("clicked");
+            });
+        });
+    </script>
+
+    <footer class="site-footer">
+        <p>© <%= new Date().getFullYear() %> Shan · Made with ☀️</p>
+    </footer>
+</body>
+</html>
