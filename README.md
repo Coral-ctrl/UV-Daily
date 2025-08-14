@@ -48,3 +48,9 @@ When children click each tip button, it transforms into a random smiley face —
 * Parents looking for fun educational tools
 
 * Teachers introducing UV awareness in class
+
+<br>
+
+## 🙌 Acknowledgement
+
+* OpenUV API for providing UV index data based on user-selected location
